@@ -1,36 +1,39 @@
 package exercise5;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.naming.ldap.HasControls;
 
 public class Student {
     private int studentID;
     private String studentName;
-    private ArrayList<String> classes;
+    private ArrayList<String> classTaken;
     private ArrayList<Double> gradees;
 
     // setter getter for private variables
-    int getStudentID() {
+    public int getStudentID() {
         return studentID;
     }
 
-    void setStudentID(int studentID) {
+    public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
 
-    String getStudentName() {
+    public String getStudentName() {
         return studentName;
     }
 
-    void setStudentName(String studentName) {
+    public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
 
-    public ArrayList<String> getClasses() {
-        return classes;
+    public ArrayList<String> getclassTaken() {
+        return classTaken;
     }
 
-    public void setClasses(ArrayList<String> classes) {
-        this.classes = classes;
+    public void setclassTaken(ArrayList<String> classTaken) {
+        this.classTaken = classTaken;
     }
 
     public ArrayList<Double> getGradees() {
@@ -41,10 +44,30 @@ public class Student {
         this.gradees = gradees;
     }
 
-    Student(int studentID, String studentName) {
-        this.studentID = studentID;
+    Student(String studentName) {
+        this.studentID = studentHashMap.size()+1;//student id is count from 1
         this.studentName = studentName;
-        this.classes = new ArrayList<String>();
+        this.classTaken = new ArrayList<String>();
         this.gradees = new ArrayList<Double>();
     }
-}
+
+    void addClass(String className, double grade) {
+        classTaken.add(className);
+        gradees.add(grade);
+    }
+    void dropClass(String className){
+        int indexRemove = this.classTaken.indexOf(className);
+        if(indexRemove != -1){
+            classTaken.remove(indexRemove);
+            gradees.remove(indexRemove);
+        }
+    }
+    double calculateGPA(){
+        double overalGPA =0;
+        for(double grade : gradees ){
+            overalGPA += grade;
+        }
+        return overalGPA;
+    }
+    public static HashMap <Integer , Student> studentHashMap = new HashMap<>();  
+} 

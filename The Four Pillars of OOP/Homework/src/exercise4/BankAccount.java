@@ -62,25 +62,25 @@ public class BankAccount {
         this.password = password;
     }
 
-    static void displayLine() {
+     void displayLine() {
         System.out.println("---------------------------------------------");
     }
 
     // object method to store username balance and password
-    public static BankAccount createBankAccount(String username, double balance, int password) {
+    public BankAccount createBankAccount(String username, double balance, int password) {
         return new BankAccount(username, balance, password);
     }
 
     // account number as the key
-    public static HashMap<Integer, BankAccount> userAccounts = new HashMap<>();
+    public HashMap<Integer, BankAccount> userAccounts = new HashMap<>();
 
     // check balance
-    static void checkBalance(int accountNum) {
+     void checkBalance(int accountNum) {
         System.out.println(userAccounts.get(accountNum).getBalance());
     }
 
     // method to transfer
-    static void transfer(int accountNumber, int accountNumberTransfer, double ammountTransfer, int password) {
+     void transfer(int accountNumber, int accountNumberTransfer, double ammountTransfer, int password) {
         //check if the entered account available
         if (userAccounts.containsKey(accountNumber) && (userAccounts.containsKey(accountNumberTransfer))) {
             //check if the entered password is valid
@@ -102,7 +102,7 @@ public class BankAccount {
             System.out.println("Invalid account number.");
     }
 
-    static void gemerateReport() {
+     void gemerateReport() {
         double totalAsset = 0;
         displayLine();
         System.out.println("***Bank financial report***");

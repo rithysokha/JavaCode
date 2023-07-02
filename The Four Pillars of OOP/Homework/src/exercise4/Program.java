@@ -14,61 +14,65 @@ public class Program {
     }
 
     public static void main(String[] args) throws Exception {
+        //create empty object to call method from BankAccount class
+        BankAccount bankAccountObj = new BankAccount(null, 0, 0){
+
+        };
         Scanner input = new Scanner(System.in);
         String username = "";
         double balance = 0;
         int password = 0;
         boolean exit = false;
-        BankAccount.displayLine();
+        bankAccountObj.displayLine();
         displayMenu();
         while (!exit) {
             char menu = input.next().charAt(0);
             input.nextLine();
             switch (menu) {
                 case 'a', 'A':
-                    BankAccount.displayLine();
+                    bankAccountObj.displayLine();
                     System.out.println("Pease enter username ");
                     username = input.nextLine();
-                    BankAccount.displayLine();
+                    bankAccountObj.displayLine();
                     System.out.println("Please enter password ");
                     password = input.nextInt();
-                    BankAccount.displayLine();
+                    bankAccountObj.displayLine();
                     System.out.println("You must deposite money to create account.");
                     System.out.println("How much do you want to deposite?");
                     balance = input.nextDouble();
                     // user id is auto generate from 1
-                    BankAccount.userAccounts.put(BankAccount.userAccounts.size() + 1,
-                            BankAccount.createBankAccount(username, balance, password));
-                    BankAccount.displayLine();
+                    bankAccountObj.userAccounts.put(bankAccountObj.userAccounts.size() + 1,
+                            bankAccountObj.createBankAccount(username, balance, password));
+                    bankAccountObj.displayLine();
                     displayMenu();
                     break;
                 case 'b', 'B':
-                    BankAccount.displayLine();
+                    bankAccountObj.displayLine();
                     System.out.println("Enter origin account");
                     int accountNumber = input.nextInt();
-                    BankAccount.displayLine();
+                    bankAccountObj.displayLine();
                     System.out.println("Enter the receiver account");
                     int accountNumberTransfer = input.nextInt();
-                    BankAccount.displayLine();
+                    bankAccountObj.displayLine();
                     System.out.println("Enter the ammount to transfer");
                     double ammountTransfer = input.nextDouble();
                     System.out.println("Enter origin account password: ");
                     int passwordOrigin = input.nextInt();
-                    BankAccount.transfer(accountNumber, accountNumberTransfer, ammountTransfer, passwordOrigin);
-                    BankAccount.displayLine();
+                    bankAccountObj.transfer(accountNumber, accountNumberTransfer, ammountTransfer, passwordOrigin);
+                    bankAccountObj.displayLine();
                     displayMenu();
                     break;
                 case 'c', 'C':
-                    BankAccount.displayLine();
+                    bankAccountObj.displayLine();
                     System.out.println("Please enter the account number: ");
                     int accountNum = input.nextInt();
-                    BankAccount.checkBalance(accountNum);
-                    BankAccount.displayLine();
+                    bankAccountObj.checkBalance(accountNum);
+                    bankAccountObj.displayLine();
                     displayMenu();
                     break;
                 case 'd', 'D':
-                    BankAccount.displayLine();
-                    BankAccount.gemerateReport();
+                    bankAccountObj.displayLine();
+                    bankAccountObj.gemerateReport();
                     displayMenu();
 
                     break;
@@ -77,7 +81,7 @@ public class Program {
                     break;
 
                 default:
-                    BankAccount.displayLine();
+                    bankAccountObj.displayLine();
                     System.out.println("Incalid choise");
                     displayMenu();
                     break;

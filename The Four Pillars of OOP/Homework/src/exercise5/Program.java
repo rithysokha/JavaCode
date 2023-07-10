@@ -1,11 +1,11 @@
 package exercise5;
-
 import java.util.Scanner;
 
 public class Program {
     //method to display menu
     static void displayMenu() {
         displayLine();
+
         System.out.println("Please choose option below: ");
         System.out.println("A: Add class.");
         System.out.println("B: Drop class");
@@ -26,9 +26,10 @@ public class Program {
         studentObj.setStudentName("Sovan");
         Scanner input = new Scanner(System.in);
         boolean exit = false;
-        displayMenu();
+        
         //the switch case will work till menu = 'd', 'D'
         while (!exit) {
+            displayMenu();
             char menu = input.next().charAt(0);
             input.nextLine();
             switch (menu) {
@@ -39,19 +40,19 @@ public class Program {
                     System.out.println("Enter the grade for the student: ");
                     Double grade = input.nextDouble();
                     studentObj.addClass(classTaken, grade);
-                    displayMenu();
+                    
                     break;
                 case 'b', 'B':
                     displayLine();
                     System.out.println("Enter the class to drop: ");
                     String dropClass = input.nextLine();
                     studentObj.dropClass(dropClass);
-                    displayMenu();
+                   
                     break;
                 case 'c', 'C':
                     displayLine();
                     studentObj.calculateGPA();
-                    displayMenu();
+                    
                     break;
                 case 'd', 'D':
                     displayLine();
@@ -60,7 +61,7 @@ public class Program {
                 default:
                     displayLine();
                     System.out.println("Invalid choise!");
-                    displayMenu();
+                   
                     break;
             }
 

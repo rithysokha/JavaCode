@@ -1,6 +1,6 @@
 package exercise1;
 
-public class Program {
+public class Exercise1 {
     public static void main(String[] args) {
         Person person = new Person("Wayha", "Phnom Penh", "+123456787",
                 "wayha123@gmail.com" );

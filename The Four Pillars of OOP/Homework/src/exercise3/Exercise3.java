@@ -1,4 +1,4 @@
-package exercise8;
+package exercise3;
 class Animal {
 
     public void makeSound() {
@@ -24,7 +24,7 @@ class Cat extends Animal {
     }
 }
 //take collection of animall
-class Zoo{
+class Exercise3{
     public static void main(String[] args) {
         Animal animal = new Animal();
         Dog dog = new Dog();

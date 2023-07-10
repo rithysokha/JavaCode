@@ -1,9 +1,9 @@
-package exercise7;
+package Exercise7;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Program {
+public class Exercise7 {
     public static void main(String[] args) {
 
         Book book1 = new Book("The Secret", "lyly", "Mindset");
